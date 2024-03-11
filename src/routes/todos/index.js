@@ -63,7 +63,7 @@ TodosRouter.get("/byuserid", async (req, res) => {
     return;
   }
 
-  const userTodos = await TodoModel.findOne({ where: { id: userId } });
+  const userTodos = await TodoModel.findAll({ where: { userId } });
 
   res.status(StatusCodes.OK).json(userTodos);
   // res.status(StatusCodes.OK).send(JSON.stringify(userTodos)); //alternativ
